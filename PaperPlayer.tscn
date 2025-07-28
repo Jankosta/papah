@@ -1,0 +1,158 @@
+[gd_scene load_steps=20 format=3 uid="uid://pnit0m8j5fg5"]
+
+[ext_resource type="Script" uid="uid://c2dferwlmicdc" path="res://PaperPlayer.gd" id="1_2kyk6"]
+[ext_resource type="Texture2D" uid="uid://dyh10bd32dkr1" path="res://MarioSprites/MarioCharge.svg" id="2_5f2a0"]
+[ext_resource type="Texture2D" uid="uid://d155kn6o6kwc" path="res://MarioSprites/MarioFall.svg" id="2_i85ww"]
+[ext_resource type="Texture2D" uid="uid://dkpoe8uibh12h" path="res://MarioSprites/MarioStand.svg" id="2_tcbg4"]
+[ext_resource type="Texture2D" uid="uid://dxv5nqghsrber" path="res://MarioSprites/MarioFall1Back.svg" id="3_j5cks"]
+[ext_resource type="Texture2D" uid="uid://dld1cegvi5n58" path="res://MarioSprites/MarioRun1.svg" id="3_njyw7"]
+[ext_resource type="Texture2D" uid="uid://xwua4flmjjkb" path="res://MarioSprites/MarioChargeBack.svg" id="3_vxomc"]
+[ext_resource type="Texture2D" uid="uid://ca7coyn8dsemk" path="res://MarioSprites/MarioRun2.svg" id="4_ng66j"]
+[ext_resource type="Texture2D" uid="uid://hrxs4riuyi3u" path="res://MarioSprites/MarioRun3.svg" id="5_7scam"]
+[ext_resource type="Texture2D" uid="uid://bnav60mb7sut8" path="res://MarioSprites/MarioStandBack.svg" id="5_jefr8"]
+[ext_resource type="Texture2D" uid="uid://1461rixk7leo" path="res://MarioSprites/MarioJump.svg" id="6_5f2a0"]
+[ext_resource type="Texture2D" uid="uid://dlrr6gb2kn0ta" path="res://MarioSprites/MarioJump1Back.svg" id="7_vxomc"]
+[ext_resource type="Texture2D" uid="uid://bq1xlb35ruub0" path="res://MarioSprites/MarioRun1Back.svg" id="11_rbj20"]
+[ext_resource type="Texture2D" uid="uid://cxbqgu8o36q3o" path="res://MarioSprites/MarioRun2Back.svg" id="12_b4dgr"]
+[ext_resource type="Texture2D" uid="uid://v8nhnyi80oeq" path="res://MarioSprites/MarioRun3Back.svg" id="13_i6vni"]
+[ext_resource type="AudioStream" uid="uid://dxa7su8lcg20o" path="res://Sounds/Jump.ogg" id="14_j5cks"]
+[ext_resource type="Texture2D" uid="uid://fykdgxo2ckre" path="res://MarioSprites/MarioSpin.svg" id="16_vxomc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu3up"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5f2a0")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vxomc")
+}],
+"loop": true,
+"name": &"chargeBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i85ww")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_j5cks")
+}],
+"loop": true,
+"name": &"fallBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tcbg4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jefr8")
+}],
+"loop": true,
+"name": &"idleBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_5f2a0")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vxomc")
+}],
+"loop": true,
+"name": &"jumpBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_njyw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ng66j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7scam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ng66j")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rbj20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b4dgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_i6vni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b4dgr")
+}],
+"loop": true,
+"name": &"runBack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_vxomc")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vxomc"]
+radius = 0.36
+height = 1.49
+
+[node name="PaperPlayer" type="CharacterBody3D"]
+script = ExtResource("1_2kyk6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Debug" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+shaded = true
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_pu3up")
+animation = &"spin"
+autoplay = "idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+shape = SubResource("CapsuleShape3D_vxomc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 2, 6)
+
+[node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_j5cks")

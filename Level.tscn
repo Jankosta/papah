@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4241rj1chqal"]
+
+[ext_resource type="PackedScene" uid="uid://pnit0m8j5fg5" path="res://PaperPlayer.tscn" id="2_2nifc"]
+[ext_resource type="Script" uid="uid://b1irentd8yejl" path="res://WorldBoundary.gd" id="2_t7iv1"]
+[ext_resource type="MeshLibrary" uid="uid://bxu3gylq8pn6y" path="res://PrototypeTiles.tres" id="3_2nifc"]
+[ext_resource type="Material" uid="uid://c0buhj82rnf1e" path="res://prototype_material.tres" id="4_wkftn"]
+[ext_resource type="Material" uid="uid://df01iilo8ile5" path="res://prototype_green.tres" id="5_q4iis"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qhyq2"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_bexhn"]
+sky_material = SubResource("ProceduralSkyMaterial_qhyq2")
+
+[sub_resource type="Environment" id="Environment_t7iv1"]
+background_mode = 2
+sky = SubResource("Sky_bexhn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2nifc"]
+
+[sub_resource type="Curve3D" id="Curve3D_wkftn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2, 6.5, -27.5, 0, 0, 0, 0, 0, 0, 8.5, 6.5, -27.5, 0, 0, 0, 0, 0, 0, 8.5, 4.95, -3),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t7iv1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866026, 0.5, 0.5, -0.433013, 0.75, 0, 0, 0)
+light_energy = 0.75
+shadow_enabled = true
+shadow_opacity = 0.75
+
+[node name="WorldBoundary" type="Area3D" parent="."]
+script = ExtResource("2_t7iv1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldBoundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = SubResource("WorldBoundaryShape3D_2nifc")
+
+[node name="PaperPlayer" parent="." instance=ExtResource("2_2nifc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("3_2nifc")
+data = {
+"cells": PackedInt32Array(-65536, 0, 2, -1, 0, 2, -65536, 65535, 2, -1, 65535, 2, -65535, 1, 2, -65536, 1, 2, -1, 1, 2, -2, 1, 2, -2, 0, 2, -2, 65535, 2, -2, 65534, 2, -1, 65534, 2, -65536, 65534, 2, -65535, 65534, 2, -65535, 65535, 2, -65535, 0, 2, -65533, 0, 2, -65533, 65535, 2, -65532, 65535, 2, -65532, 0, 2, -4, 0, 2, -5, 0, 2, -5, 65535, 2, -4, 65535, 2, -8, 0, 2, -9, 0, 2, -9, 65535, 2, -8, 65535, 2, 6, 65535, 1, 6, 0, 1, 7, 0, 1, 7, 65535, 1, 65534, 65534, 1245185, 1, 65534, 1507329, 65527, 65535, 1, 65527, 0, 1, -65549, 0, 2, -65550, 0, 2, -65550, 65535, 2, -65549, 65535, 2, 8, 65535, 1, 9, 65535, 1, 10, 65535, 1, 11, 65535, 1, 12, 65535, 1, 13, 65535, 1, 14, 65535, 1, 14, 0, 1, 13, 0, 1, 12, 0, 1, 11, 0, 1, 10, 0, 1, 9, 0, 1, 8, 0, 1, 15, 65535, 1, 16, 65535, 1, 17, 65535, 1, 18, 65535, 1, 19, 65535, 1, 19, 0, 1, 18, 0, 1, 17, 0, 1, 16, 0, 1, 15, 0, 1, 65535, 65531, 2, 0, 65531, 2, 0, 65532, 2, 65535, 65532, 2, 131071, 65529, 2, 65536, 65529, 2, 65536, 65528, 2, 131071, 65528, 2, 196607, 65526, 2, 131072, 65526, 2, 131072, 65525, 2, 196607, 65525, 2, 131075, 0, 2, 131075, 65535, 2, 131076, 65535, 2, 131076, 0, 2, 131074, 1, 2, 131075, 1, 2, 131076, 1, 2, 131077, 1, 2, 131077, 0, 2, 131077, 65535, 2, 131077, 65534, 2, 131076, 65534, 2, 131075, 65534, 2, 131074, 65534, 2, 131074, 65535, 2, 131074, 0, 2, 131074, 2, 2, 131075, 2, 2, 131076, 2, 2, 131077, 2, 2, 131074, 3, 2, 131075, 3, 2, 131076, 3, 2, 131077, 3, 2)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -27)
+use_collision = true
+inner_radius = 1.0
+outer_radius = 3.0
+material = ExtResource("4_wkftn")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+use_collision = true
+mode = 2
+path_node = NodePath("Path3D")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("4_wkftn")
+
+[node name="Path3D" type="Path3D" parent="CSGPolygon3D"]
+curve = SubResource("Curve3D_wkftn")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 8.5, 2)
+use_collision = true
+size = Vector3(4, 1, 4)
+material = ExtResource("5_q4iis")
+
+[connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
