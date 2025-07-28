@@ -13,7 +13,7 @@ const JUMP_VELOCITY := 12.5
 const CUSTOM_GRAVITY := -40.0
 const MAX_FALL_SPEED := -40.0
 
-# Fash Stuff
+# Dash Stuff
 var charge := 0.0
 
 # Animation Declarations
@@ -24,7 +24,7 @@ var face_up := false
 var new_animation := "idle"
 var new_suffix := ""
 
-# debug
+# Debug
 var charge_cap = true
 
 func _ready() -> void:
@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	# Determine the target rotation
 	target_rotation = 0.0 if face_right else 180.0
 	
-		# Spin
+	# Spin
 	if charge > 0.0 and state == "neutral":
 		Sprite.rotation_degrees.y += ((charge) * 100) * delta
 		Sprite.rotation_degrees.y = fmod(Sprite.rotation_degrees.y, 360.0)
@@ -151,7 +151,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Color
 	if state == "charge":
-		Sprite.modulate = Color(1.0 - charge/12.0, 1.0 - charge/12.0, 1.0)
+		Sprite.modulate = Color(1.0 - (charge - 4.0)/8.0, 1.0 - (charge- 4.0)/8.0, 1.0)
 	else:
 		Sprite.modulate = Color(1.0, 1.0, 1.0)  # Reset to normal
 			
