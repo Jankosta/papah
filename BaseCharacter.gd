@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name BaseCharacter
 
 @onready var Debug := $CanvasLayer/Debug
 @onready var Sprite: AnimatedSprite3D = $Sprite
@@ -6,12 +7,17 @@ extends CharacterBody3D
 
 # State Declarations
 var state := "neutral"
+var character := "base"
+var frozen := false
 
 # Physics Declarations
-const SPEED := 8.0
-const JUMP_VELOCITY := 12.5
-const CUSTOM_GRAVITY := -40.0
-const MAX_FALL_SPEED := -40.0
+var ground_speed := 8.0
+var air_speed := 8.0
+var move_speed := 0.0
+var jump_velocity := 12.5
+var gravity := -40.0
+var max_fall_speed := -40.0
+var traction := 10.0
 
 # Dash Stuff
 var charge := 0.0
@@ -28,18 +34,22 @@ var new_suffix := ""
 var charge_cap = true
 
 func _ready() -> void:
+	add_to_group("players")
 	Sprite.play("idle")
 
 func _physics_process(delta: float) -> void:
+	if frozen:
+		return
+	
 	# Gravity
 	if not is_on_floor():
-		velocity.y += CUSTOM_GRAVITY * delta
-		if velocity.y < MAX_FALL_SPEED:
-			velocity.y = MAX_FALL_SPEED
+		velocity.y += gravity * delta
+		if velocity.y < max_fall_speed:
+			velocity.y = max_fall_speed
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY + (charge * 0.5)
+		velocity.y = jump_velocity + (charge * 0.3)
 		JumpSound.play()
 		if state == "charge":
 			state = "neutral"
@@ -53,12 +63,15 @@ func _physics_process(delta: float) -> void:
 	if state == "neutral":
 		if is_on_floor():
 			charge = max(charge - 0.05, 0.0)
-		if direction:
-			velocity.x = direction.x * (SPEED + charge)
-			velocity.z = direction.z * (SPEED + charge)
+			move_speed = ground_speed
 		else:
-			velocity.x = move_toward(velocity.x, 0, (SPEED + charge) * delta * 10)
-			velocity.z = move_toward(velocity.z, 0, (SPEED + charge) * delta * 10)
+			move_speed = air_speed
+		if direction:
+			velocity.x = direction.x * (move_speed + charge)
+			velocity.z = direction.z * (move_speed + charge)
+		else:
+			velocity.x = move_toward(velocity.x, 0, (move_speed + charge) * delta * traction)
+			velocity.z = move_toward(velocity.z, 0, (move_speed + charge) * delta * traction)
 
 		move_and_slide()
 		
@@ -152,14 +165,19 @@ func _physics_process(delta: float) -> void:
 	# Color
 	if state == "charge":
 		Sprite.modulate = Color(1.0 - (charge - 4.0)/8.0, 1.0 - (charge- 4.0)/8.0, 1.0)
-	elif state == "neutral" and charge > 0.0:
+	else:
 		Sprite.modulate = Color(1.0, 1.0, 1.0)  # Reset to normal
 			
 	# Debug
 	Debug.text = "Velocity:\n" + "X: %.2f\nY: %.2f\nZ: %.2f" % [velocity.x, velocity.y, velocity.z]
+	Debug.text += "\nCharacter: %s" % character
 	Debug.text += "\nState: %s" % state
 	Debug.text += "\nCharge (Shift): %.2f" % charge
 	Debug.text += "\nCharge Cap: %s" % charge_cap
 	
 	if Input.is_action_just_pressed("debug_1"):
 		charge_cap = !charge_cap
+		
+func set_frozen(value: bool) -> void:
+	frozen = value
+	set_physics_process(!value)

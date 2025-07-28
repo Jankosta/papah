@@ -1,0 +1,157 @@
+[gd_scene load_steps=17 format=3 uid="uid://bsvheiloa0jbr"]
+
+[ext_resource type="Script" uid="uid://c3v47noq85vir" path="res://Luigi.gd" id="1_cuxvl"]
+[ext_resource type="Texture2D" uid="uid://blfqivxk507m0" path="res://Sprites/LuigiSprites/LuigiCharge.svg" id="2_heorg"]
+[ext_resource type="Texture2D" uid="uid://dklghq6xa626l" path="res://Sprites/LuigiSprites/LuigiJump1Back.svg" id="4_42pn8"]
+[ext_resource type="Texture2D" uid="uid://xp8gu6m8pubv" path="res://Sprites/LuigiSprites/LuigiFall1.svg" id="4_vaeow"]
+[ext_resource type="Texture2D" uid="uid://hx3kdpfgu5i" path="res://Sprites/LuigiSprites/LuigiStandBack.svg" id="5_1r5ex"]
+[ext_resource type="Texture2D" uid="uid://cf5xpsfp6t5ji" path="res://Sprites/LuigiSprites/LuigiJump1.svg" id="6_8pei3"]
+[ext_resource type="Texture2D" uid="uid://lw7dwh25oqbu" path="res://Sprites/LuigiSprites/LuigiStand.svg" id="6_cuxvl"]
+[ext_resource type="Texture2D" uid="uid://c0aqewks63txy" path="res://Sprites/LuigiSprites/LuigiRun1.svg" id="10_cuxvl"]
+[ext_resource type="Texture2D" uid="uid://cng1dkgdgpxor" path="res://Sprites/LuigiSprites/LuigiRun1Back.svg" id="10_gekni"]
+[ext_resource type="Texture2D" uid="uid://c4ied64nwbi84" path="res://Sprites/LuigiSprites/LuigiRun2Back.svg" id="11_42pn8"]
+[ext_resource type="Texture2D" uid="uid://csjevglfgw80n" path="res://Sprites/LuigiSprites/LuigiRun2.svg" id="11_jjsnt"]
+[ext_resource type="Texture2D" uid="uid://bkqvj6e2nsew8" path="res://Sprites/LuigiSprites/LuigiRun3.svg" id="12_cwiqr"]
+[ext_resource type="Texture2D" uid="uid://dxwfu32jxat6t" path="res://Sprites/LuigiSprites/LuigiRun3Back.svg" id="12_klytv"]
+[ext_resource type="AudioStream" uid="uid://duklcgqbsxj07" path="res://Sounds/LuigiJump.ogg" id="14_42pn8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu3up"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_heorg")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_heorg")
+}],
+"loop": true,
+"name": &"chargeBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vaeow")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_42pn8")
+}],
+"loop": true,
+"name": &"fallBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cuxvl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1r5ex")
+}],
+"loop": true,
+"name": &"idleBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8pei3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_42pn8")
+}],
+"loop": true,
+"name": &"jumpBack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_cuxvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jjsnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_cwiqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jjsnt")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gekni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_42pn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_klytv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_42pn8")
+}],
+"loop": true,
+"name": &"runBack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8pei3")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vxomc"]
+radius = 0.36
+height = 1.75
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_cuxvl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Debug" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135, 0)
+shaded = true
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_pu3up")
+animation = &"fallBack"
+autoplay = "idle"
+frame_progress = 0.124845
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0697621, 0)
+shape = SubResource("CapsuleShape3D_vxomc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 2, 6)
+
+[node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_42pn8")

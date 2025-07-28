@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvkb1hqq21ng0"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://dxwfu32jxat6t"
+path="res://.godot/imported/LuigiRun3Back.svg-bc1dfebda5e0af89e64b8df926fbab99.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://Sprites/LuigiSprites/LuigiRun3Back.svg"
+dest_files=["res://.godot/imported/LuigiRun3Back.svg-bc1dfebda5e0af89e64b8df926fbab99.ctex"]
 
 [params]
 

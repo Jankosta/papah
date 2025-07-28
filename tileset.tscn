@@ -19,6 +19,7 @@ data = PackedVector3Array(-1, 0.5, 1, 1, 0.5, 1, -1, -0.5, 1, 1, 0.5, 1, 1, -0.5
 [node name="Node3D" type="Node3D"]
 
 [node name="BoxMesh" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_rc7fl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BoxMesh"]
@@ -28,6 +29,7 @@ shape = SubResource("ConcavePolygonShape3D_q5803")
 
 [node name="BottomStep" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
 mesh = SubResource("BoxMesh_kfggg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BottomStep"]
@@ -37,6 +39,7 @@ shape = SubResource("ConcavePolygonShape3D_rc7fl")
 
 [node name="TopStep" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
 mesh = SubResource("BoxMesh_kfggg")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TopStep"]
