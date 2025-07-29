@@ -159,8 +159,6 @@ func _physics_process(delta: float) -> void:
 	if charge > 0.0 and state == "neutral":
 		new_animation = "spin"
 		new_suffix = ""
-		
-	Sprite.play(new_animation + new_suffix)
 	
 	# Color
 	if state == "charge":

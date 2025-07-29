@@ -17,3 +17,5 @@ func _physics_process(delta: float) -> void:
 	# Test
 	if Input.is_action_just_pressed("debug_3"):
 		print("Mario uses his special move!")
+		
+	Sprite.play(new_animation + new_suffix)

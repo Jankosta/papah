@@ -142,9 +142,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135, 0)
 shaded = true
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_pu3up")
-animation = &"fallBack"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.124845
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0697621, 0)
