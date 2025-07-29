@@ -19,7 +19,9 @@ var gravity := -40.0
 var max_fall_speed := -40.0
 var traction := 10.0
 
-# Dash Stuff
+# Ability Stuff
+var bonus_speed := 0.0
+var bonus_jump := 0.0
 var charge := 0.0
 
 # Animation Declarations
@@ -49,12 +51,14 @@ func _physics_process(delta: float) -> void:
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity + (charge * 0.3)
+		velocity.y = jump_velocity + bonus_jump + (bonus_speed * 0.3)
 		JumpSound.play()
-		if state == "charge":
-			state = "neutral"
 	if Input.is_action_just_released("jump") and velocity.y > 0:
 		velocity.y *= 0.5
+		
+	# Reset Bonus Jump
+	if is_on_floor():
+		bonus_jump = 0.0
 
 	# Movement
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
@@ -62,60 +66,43 @@ func _physics_process(delta: float) -> void:
 	
 	if state == "neutral":
 		if is_on_floor():
-			charge = max(charge - 0.05, 0.0)
+			bonus_speed = max(bonus_speed - 0.05, 0.0)
 			move_speed = ground_speed
 		else:
 			move_speed = air_speed
 		if direction:
-			velocity.x = direction.x * (move_speed + charge)
-			velocity.z = direction.z * (move_speed + charge)
+			velocity.x = direction.x * (move_speed * (1 + bonus_speed / 8.0))
+			velocity.z = direction.z * (move_speed * (1 + bonus_speed / 8.0))
 		else:
-			velocity.x = move_toward(velocity.x, 0, (move_speed + charge) * delta * traction)
-			velocity.z = move_toward(velocity.z, 0, (move_speed + charge) * delta * traction)
+			velocity.x = move_toward(velocity.x, 0, (move_speed * (1 + bonus_speed / 8.0)) * delta * traction)
+			velocity.z = move_toward(velocity.z, 0, (move_speed * (1 + bonus_speed / 8.0)) * delta * traction)
 
 		move_and_slide()
 		
-		if velocity.x == 0 and velocity.z == 0:
-			charge = 0
-		if charge < 4.0:
-			charge = 0
-		
-	# Dash
-	if Input.is_action_pressed("sprint") and state == "neutral" and is_on_floor():
-		state = "charge"
-		charge = 0
-		
-	if Input.is_action_just_released("sprint") and state == "charge":
-		state = "neutral"
-		if charge < 4.0:
-			charge = 0.0
-		
-	if state == "charge":
-		if charge_cap == true:
-			charge = min(charge + 0.15, 8.0)
-		else:
-			charge += 0.15
+		if velocity.x == 0 and velocity.z == 0 and is_on_floor():
+			bonus_speed = 0
+		if bonus_speed < 4.0:
+			bonus_speed = 0
 	
 	# Flip
 	var target_rotation := Sprite.rotation_degrees.y
 
-	if is_on_floor() and (charge == 0.0 or state == "charge"):
+	if is_on_floor() and (bonus_speed == 0.0):
 		if input_dir.x > 0.0 and not face_right:
 			face_right = true
 			is_flipping = true
 		elif input_dir.x < 0.0 and face_right:
 			face_right = false
 			is_flipping = true
-		
-	# Determine the target rotation
+	
 	target_rotation = 0.0 if face_right else 180.0
 	
 	# Spin
-	if charge > 0.0 and state == "neutral":
-		Sprite.rotation_degrees.y += ((charge) * 100) * delta
+	if bonus_speed > 0.0 and state == "neutral":
+		Sprite.rotation_degrees.y += ((bonus_speed) * 100) * delta
 		Sprite.rotation_degrees.y = fmod(Sprite.rotation_degrees.y, 360.0)
 		
-	if charge < 4.0 and not is_flipping:
+	if bonus_speed < 4.0 and not is_flipping:
 		Sprite.rotation_degrees.y = move_toward(Sprite.rotation_degrees.y, target_rotation, FLIP_SPEED)
 
 	# Execute flip
@@ -156,18 +143,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		new_suffix = ""
 		
-	if charge > 0.0 and state == "neutral":
+	if bonus_speed > 0.0 and state == "neutral":
 		new_animation = "spin"
 		new_suffix = ""
-	
-	# Color
-	if state == "charge":
-		Sprite.modulate = Color(1.0 - (charge - 4.0)/8.0, 1.0 - (charge- 4.0)/8.0, 1.0)
-	else:
-		Sprite.modulate = Color(1.0, 1.0, 1.0)  # Reset to normal
 			
 	# Debug
 	Debug.text = "Velocity:\n" + "X: %.2f\nY: %.2f\nZ: %.2f" % [velocity.x, velocity.y, velocity.z]
+	Debug.text += "\nBonus Speed: %.2f" % bonus_speed
 	Debug.text += "\nCharacter: %s" % character
 	Debug.text += "\nState: %s" % state
 	Debug.text += "\nCharge (Shift): %.2f" % charge
