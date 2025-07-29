@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk434bls4nu2q"]
 
-[ext_resource type="Material" uid="uid://c0buhj82rnf1e" path="res://prototype_material.tres" id="1_kfggg"]
+[ext_resource type="Material" uid="uid://c0buhj82rnf1e" path="res://materials/prototype_material.tres" id="1_5tcpd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rc7fl"]
-material = ExtResource("1_kfggg")
+material = ExtResource("1_5tcpd")
 size = Vector3(2, 2, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q5803"]
 data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_kfggg"]
-material = ExtResource("1_kfggg")
+material = ExtResource("1_5tcpd")
 size = Vector3(2, 1, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rc7fl"]

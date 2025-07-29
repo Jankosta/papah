@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://1fwypt5avch7"
-path="res://.godot/imported/MarioJump.ogg-ea91e771786ee08feb40851a6801cfe7.oggvorbisstr"
+path="res://.godot/imported/MarioJump.ogg-03b63d4e74216abe6fce1ae73fd216ad.oggvorbisstr"
 
 [deps]
 
-source_file="res://Sounds/MarioJump.ogg"
-dest_files=["res://.godot/imported/MarioJump.ogg-ea91e771786ee08feb40851a6801cfe7.oggvorbisstr"]
+source_file="res://sounds/MarioJump.ogg"
+dest_files=["res://.godot/imported/MarioJump.ogg-03b63d4e74216abe6fce1ae73fd216ad.oggvorbisstr"]
 
 [params]
 

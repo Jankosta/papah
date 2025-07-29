@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1461rixk7leo"
-path.s3tc="res://.godot/imported/MarioJump.svg-64881f91033461b2101b3a6d82220dcf.s3tc.ctex"
+path.s3tc="res://.godot/imported/MarioJump.svg-00b140e8d36d15f018864e621fcd1d29.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/MarioSprites/MarioJump.svg"
-dest_files=["res://.godot/imported/MarioJump.svg-64881f91033461b2101b3a6d82220dcf.s3tc.ctex"]
+source_file="res://sprites/MarioSprites/MarioJump.svg"
+dest_files=["res://.godot/imported/MarioJump.svg-00b140e8d36d15f018864e621fcd1d29.s3tc.ctex"]
 
 [params]
 

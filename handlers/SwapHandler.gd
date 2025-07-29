@@ -1,13 +1,13 @@
 extends Node3D
 
-var mario := preload("res://Mario.tscn")
-var luigi := preload("res://Luigi.tscn")
+var mario := preload("res://playable/Mario.tscn")
+var luigi := preload("res://playable/Luigi.tscn")
 var current_character: CharacterBody3D
 
 var swapping := false
 var swap_timer := 0.0
 var swap_direction := 1 
-const ROT_SPEED := 360.0 
+const ROT_SPEED := 420.0 
 var rot_dir := 1
 
 func _ready():

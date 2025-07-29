@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lw7dwh25oqbu"
-path.s3tc="res://.godot/imported/LuigiStand.svg-c12244cd67272e568b09326bb2093466.s3tc.ctex"
+path.s3tc="res://.godot/imported/LuigiStand.svg-57053b01c3ce45311932344b017c729d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/LuigiSprites/LuigiStand.svg"
-dest_files=["res://.godot/imported/LuigiStand.svg-c12244cd67272e568b09326bb2093466.s3tc.ctex"]
+source_file="res://sprites/LuigiSprites/LuigiStand.svg"
+dest_files=["res://.godot/imported/LuigiStand.svg-57053b01c3ce45311932344b017c729d.s3tc.ctex"]
 
 [params]
 

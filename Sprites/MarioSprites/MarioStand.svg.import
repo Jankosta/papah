@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkpoe8uibh12h"
-path.s3tc="res://.godot/imported/MarioStand.svg-f1a54de2f6275fbdf5befe0b80a73fb0.s3tc.ctex"
+path.s3tc="res://.godot/imported/MarioStand.svg-561b91cd87aaec4678820ad077d6af75.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/MarioSprites/MarioStand.svg"
-dest_files=["res://.godot/imported/MarioStand.svg-f1a54de2f6275fbdf5befe0b80a73fb0.s3tc.ctex"]
+source_file="res://sprites/MarioSprites/MarioStand.svg"
+dest_files=["res://.godot/imported/MarioStand.svg-561b91cd87aaec4678820ad077d6af75.s3tc.ctex"]
 
 [params]
 

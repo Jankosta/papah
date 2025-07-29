@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csjevglfgw80n"
-path.s3tc="res://.godot/imported/LuigiRun2.svg-eb6e43992e1200f70f36457b21d5f99c.s3tc.ctex"
+path.s3tc="res://.godot/imported/LuigiRun2.svg-87966b5fedebb7a668f0293b47b5f3a4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/LuigiSprites/LuigiRun2.svg"
-dest_files=["res://.godot/imported/LuigiRun2.svg-eb6e43992e1200f70f36457b21d5f99c.s3tc.ctex"]
+source_file="res://sprites/LuigiSprites/LuigiRun2.svg"
+dest_files=["res://.godot/imported/LuigiRun2.svg-87966b5fedebb7a668f0293b47b5f3a4.s3tc.ctex"]
 
 [params]
 

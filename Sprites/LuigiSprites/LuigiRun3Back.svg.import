@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxwfu32jxat6t"
-path="res://.godot/imported/LuigiRun3Back.svg-bc1dfebda5e0af89e64b8df926fbab99.ctex"
+path="res://.godot/imported/LuigiRun3Back.svg-993c1dd050eb23e1a6c03e9c936b511d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/LuigiSprites/LuigiRun3Back.svg"
-dest_files=["res://.godot/imported/LuigiRun3Back.svg-bc1dfebda5e0af89e64b8df926fbab99.ctex"]
+source_file="res://sprites/LuigiSprites/LuigiRun3Back.svg"
+dest_files=["res://.godot/imported/LuigiRun3Back.svg-993c1dd050eb23e1a6c03e9c936b511d.ctex"]
 
 [params]
 

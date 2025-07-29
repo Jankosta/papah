@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fykdgxo2ckre"
-path.s3tc="res://.godot/imported/MarioSpin.svg-31aef6a09732074373f14377e91034a3.s3tc.ctex"
+path.s3tc="res://.godot/imported/MarioSpin.svg-41769d41a8c7ce0bcad65cf3c28211cb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/MarioSprites/MarioSpin.svg"
-dest_files=["res://.godot/imported/MarioSpin.svg-31aef6a09732074373f14377e91034a3.s3tc.ctex"]
+source_file="res://sprites/MarioSprites/MarioSpin.svg"
+dest_files=["res://.godot/imported/MarioSpin.svg-41769d41a8c7ce0bcad65cf3c28211cb.s3tc.ctex"]
 
 [params]
 

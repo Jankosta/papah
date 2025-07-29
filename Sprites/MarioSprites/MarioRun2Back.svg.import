@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxbqgu8o36q3o"
-path.s3tc="res://.godot/imported/MarioRun2Back.svg-ee7c155fa15c9abc9128753a2ac040bc.s3tc.ctex"
+path.s3tc="res://.godot/imported/MarioRun2Back.svg-43a6039c0bcd14106208d8b4e18bd105.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/MarioSprites/MarioRun2Back.svg"
-dest_files=["res://.godot/imported/MarioRun2Back.svg-ee7c155fa15c9abc9128753a2ac040bc.s3tc.ctex"]
+source_file="res://sprites/MarioSprites/MarioRun2Back.svg"
+dest_files=["res://.godot/imported/MarioRun2Back.svg-43a6039c0bcd14106208d8b4e18bd105.s3tc.ctex"]
 
 [params]
 

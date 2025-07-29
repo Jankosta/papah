@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xwua4flmjjkb"
-path.s3tc="res://.godot/imported/MarioChargeBack.svg-d96947c5f82e70cce3dd7e44016606c0.s3tc.ctex"
+path.s3tc="res://.godot/imported/MarioChargeBack.svg-797d19d3500fb6293557f952754f0cc8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/MarioSprites/MarioChargeBack.svg"
-dest_files=["res://.godot/imported/MarioChargeBack.svg-d96947c5f82e70cce3dd7e44016606c0.s3tc.ctex"]
+source_file="res://sprites/MarioSprites/MarioChargeBack.svg"
+dest_files=["res://.godot/imported/MarioChargeBack.svg-797d19d3500fb6293557f952754f0cc8.s3tc.ctex"]
 
 [params]
 

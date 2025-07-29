@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf5xpsfp6t5ji"
-path.s3tc="res://.godot/imported/LuigiJump1.svg-b15687983488a0eaae265bc77193f6d4.s3tc.ctex"
+path.s3tc="res://.godot/imported/LuigiJump1.svg-bc4488a8d9ef3e3ef9861bd096ba1f41.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/LuigiSprites/LuigiJump1.svg"
-dest_files=["res://.godot/imported/LuigiJump1.svg-b15687983488a0eaae265bc77193f6d4.s3tc.ctex"]
+source_file="res://sprites/LuigiSprites/LuigiJump1.svg"
+dest_files=["res://.godot/imported/LuigiJump1.svg-bc4488a8d9ef3e3ef9861bd096ba1f41.s3tc.ctex"]
 
 [params]
 

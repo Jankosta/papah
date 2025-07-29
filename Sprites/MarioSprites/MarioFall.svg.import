@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d155kn6o6kwc"
-path.s3tc="res://.godot/imported/MarioFall.svg-23eafc85e013ce8dfab5eab60de7beb4.s3tc.ctex"
+path.s3tc="res://.godot/imported/MarioFall.svg-0aafe874ef1611f802ab70eebb0dfe25.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/MarioSprites/MarioFall.svg"
-dest_files=["res://.godot/imported/MarioFall.svg-23eafc85e013ce8dfab5eab60de7beb4.s3tc.ctex"]
+source_file="res://sprites/MarioSprites/MarioFall.svg"
+dest_files=["res://.godot/imported/MarioFall.svg-0aafe874ef1611f802ab70eebb0dfe25.s3tc.ctex"]
 
 [params]
 
