@@ -21,10 +21,12 @@ func _physics_process(delta: float) -> void:
 	# BaseCharacter logic
 	super._physics_process(delta)
 	
+	# Superjump
 	if Input.is_action_pressed("sprint") and state == "neutral" and is_on_floor():
 		state = "charge"
-		charge = 0
-		bonus_jump = 0
+		charge = 0.0
+		bonus_jump = 0.0
+		bonus_speed = 0.0
 		
 	if Input.is_action_just_released("sprint") and state == "charge":
 		state = "neutral"
