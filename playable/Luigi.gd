@@ -19,9 +19,8 @@ func _physics_process(delta: float) -> void:
 		gravity = -25.0
 		max_fall_speed = -15.0
 	else:
-		air_speed = 5.0
-		gravity = -25.0
-		max_fall_speed = -15.0
+		gravity = -30.0
+		max_fall_speed = -30.0
 
 	# Test
 	if Input.is_action_just_pressed("debug_3"):
