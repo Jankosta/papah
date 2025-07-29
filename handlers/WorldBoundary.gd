@@ -3,12 +3,11 @@ extends Area3D
 func _ready() -> void:
 	pass 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("players"):
-		call_deferred("reload_scene")
-
-func reload_scene():
-	get_tree().reload_current_scene()
+		body.global_transform.origin = Vector3(0, 0.5, 0)
+		body.velocity = Vector3.ZERO
+		body.charge = 0.0

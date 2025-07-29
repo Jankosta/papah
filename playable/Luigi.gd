@@ -9,3 +9,11 @@ func _ready():
 	traction = 3.0
 	character = "Luigi"
 	add_to_group("players")
+
+func _physics_process(delta: float) -> void:
+	# BaseCharacter logic
+	super._physics_process(delta)
+
+	# Test
+	if Input.is_action_just_pressed("debug_3"):
+		print("Luigi uses his special move!")

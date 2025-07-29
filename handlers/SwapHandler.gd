@@ -55,8 +55,8 @@ func handle_swap_animation(delta: float) -> void:
 		current_character.queue_free()
 
 		current_character = new_scene.instantiate()
-		current_character.global_transform.origin = pos
 		add_child(current_character)
+		current_character.global_transform.origin = pos
 		
 		current_character.velocity = temp_velocity
 		current_character.charge = temp_charge
@@ -75,7 +75,7 @@ func handle_swap_animation(delta: float) -> void:
 		swapping = false
 
 func spawn_character(scene: PackedScene):
-	var pos := Vector3(0, 1, 0) # Default Spawn
+	var pos := Vector3(0, 0.5, 0) # Default Spawn
 	var face_right := true # Fallback
 
 	if current_character:
@@ -84,8 +84,8 @@ func spawn_character(scene: PackedScene):
 		current_character.queue_free()
 
 	current_character = scene.instantiate()
-	current_character.global_transform.origin = pos
 	add_child(current_character)
+	current_character.global_transform.origin = pos
 
 	current_character.face_right = face_right
 	current_character.Sprite.rotation_degrees.y = 0.0 if face_right else 180.0
