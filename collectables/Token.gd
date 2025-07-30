@@ -43,5 +43,5 @@ func _physics_process(delta: float) -> void:
 
 		# Pick up
 		if global_position.distance_to(target_player.global_position) < pickup_distance:
-			target_player.coin_count += 1
+			# target_player.coin_count += 1
 			queue_free()

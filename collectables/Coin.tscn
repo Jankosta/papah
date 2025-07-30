@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://cy3r1g4og2nyf"]
+
+[ext_resource type="Script" uid="uid://bhxl7mo7uthli" path="res://collectables/Coin.gd" id="1_7g20g"]
+[ext_resource type="Texture2D" uid="uid://c3optjf16rtda" path="res://sprites/Items/Coin.svg" id="2_7g20g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2r6w6"]
+radius = 0.25
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpyta"]
+atlas = ExtResource("2_7g20g")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g20g"]
+atlas = ExtResource("2_7g20g")
+region = Rect2(60, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spyts"]
+atlas = ExtResource("2_7g20g")
+region = Rect2(120, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4c7x"]
+atlas = ExtResource("2_7g20g")
+region = Rect2(180, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhebr"]
+atlas = ExtResource("2_7g20g")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_achhp"]
+atlas = ExtResource("2_7g20g")
+region = Rect2(300, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfy5k"]
+atlas = ExtResource("2_7g20g")
+region = Rect2(360, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo35b"]
+atlas = ExtResource("2_7g20g")
+region = Rect2(420, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpyta"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpyta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g20g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spyts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4c7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhebr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_achhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfy5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo35b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[node name="Coin" type="Area3D"]
+script = ExtResource("1_7g20g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2r6w6")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_mpyta")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.496201
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
