@@ -81,10 +81,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, move_speed * delta * traction * 2.0)
 		velocity.z = move_toward(velocity.z, 0, move_speed * delta * traction * 2.0)
 		
-	if velocity.x == 0 and velocity.z == 0 and is_on_floor():
-			bonus_speed = 0
+	if velocity == Vector3.ZERO:
+		bonus_speed -= 0.2
 	if bonus_speed < 4.0:
-		bonus_speed = 0
+		bonus_speed = 0.0
 	
 	move_and_slide()
 	
