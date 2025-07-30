@@ -64,25 +64,29 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	if is_on_floor():
+		bonus_speed = max(bonus_speed - 0.05, 0.0)
+		move_speed = ground_speed
+	else:
+		move_speed = air_speed
+
 	if state == "neutral":
-		if is_on_floor():
-			bonus_speed = max(bonus_speed - 0.05, 0.0)
-			move_speed = ground_speed
-		else:
-			move_speed = air_speed
 		if direction:
 			velocity.x = direction.x * (move_speed * (1 + bonus_speed / 8.0))
 			velocity.z = direction.z * (move_speed * (1 + bonus_speed / 8.0))
 		else:
 			velocity.x = move_toward(velocity.x, 0, (move_speed * (1 + bonus_speed / 8.0)) * delta * traction)
 			velocity.z = move_toward(velocity.z, 0, (move_speed * (1 + bonus_speed / 8.0)) * delta * traction)
-
-		move_and_slide()
+	elif state == "charge":
+		velocity.x = move_toward(velocity.x, 0, move_speed * delta * traction * 2.0)
+		velocity.z = move_toward(velocity.z, 0, move_speed * delta * traction * 2.0)
 		
-		if velocity.x == 0 and velocity.z == 0 and is_on_floor():
+	if velocity.x == 0 and velocity.z == 0 and is_on_floor():
 			bonus_speed = 0
-		if bonus_speed < 4.0:
-			bonus_speed = 0
+	if bonus_speed < 4.0:
+		bonus_speed = 0
+	
+	move_and_slide()
 	
 	# Flip
 	var target_rotation := Sprite.rotation_degrees.y

@@ -46,9 +46,5 @@ func _physics_process(delta: float) -> void:
 		Sprite.modulate = Color(1.0 - (charge - 4.0)/8.0, 1.0 - (charge- 4.0)/8.0, 1.0)
 	else:
 		Sprite.modulate = Color(1.0, 1.0, 1.0)  # Reset to normal
-
-	# Test
-	if Input.is_action_just_pressed("debug_3"):
-		print("Mario uses his special move!")
-		
+	
 	Sprite.play(new_animation + new_suffix)

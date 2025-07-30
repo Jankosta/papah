@@ -21,6 +21,15 @@ func _physics_process(delta: float) -> void:
 	# BaseCharacter logic
 	super._physics_process(delta)
 	
+	# Scuttle Jump
+	if velocity.y <= 7.5 and !is_on_floor() and Input.is_action_pressed("jump") and state == "neutral":
+		new_animation = "run"
+		gravity = -27.5
+		max_fall_speed = -15.0
+	else:
+		gravity = -30.0
+		max_fall_speed = -40.0
+	
 	# Superjump
 	if Input.is_action_pressed("sprint") and state == "neutral" and is_on_floor():
 		state = "charge"
@@ -48,17 +57,4 @@ func _physics_process(delta: float) -> void:
 	else:
 		Sprite.modulate = Color(1.0, 1.0, 1.0)  # Reset to normal
 	
-	# Scuttle Jump
-	if velocity.y <= 7.5 and !is_on_floor() and Input.is_action_pressed("jump"):
-		new_animation = "run"
-		gravity = -27.5
-		max_fall_speed = -15.0
-	else:
-		gravity = -30.0
-		max_fall_speed = -40.0
-
-	# Test
-	if Input.is_action_just_pressed("debug_3"):
-		print("Luigi uses his special move!")
-		
 	Sprite.play(new_animation + new_suffix)
