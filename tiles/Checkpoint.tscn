@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b020u1xwy2027"]
+
+[ext_resource type="Script" uid="uid://b1hsymt4x2gxo" path="res://tiles/Checkpoint.gd" id="1_ir6d7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yt2a0"]
+size = Vector3(8, 4, 8)
+
+[node name="Checkpoint" type="Area3D"]
+script = ExtResource("1_ir6d7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_yt2a0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

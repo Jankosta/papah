@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4241rj1chqal"]
+[gd_scene load_steps=18 format=3 uid="uid://c4241rj1chqal"]
 
 [ext_resource type="Script" uid="uid://b1irentd8yejl" path="res://handlers/WorldBoundary.gd" id="1_vk76v"]
 [ext_resource type="MeshLibrary" uid="uid://bxu3gylq8pn6y" path="res://tiles/PrototypeTiles.tres" id="2_mvu23"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cy3r1g4og2nyf" path="res://collectables/Coin.tscn" id="8_v1run"]
 [ext_resource type="PackedScene" uid="uid://byusspsgeh878" path="res://collectables/RedCoin.tscn" id="9_olgy5"]
 [ext_resource type="PackedScene" uid="uid://bh22n5m53ik5n" path="res://collectables/BlueCoin.tscn" id="10_u77ad"]
+[ext_resource type="PackedScene" uid="uid://b020u1xwy2027" path="res://tiles/Checkpoint.tscn" id="11_3g7cv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qhyq2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -158,5 +159,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
 
 [node name="Coin8" parent="Collectables" instance=ExtResource("10_u77ad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -1, 0)
+
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 8, 0)
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -22, 19, 1)
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -34, 19, 1)
+
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.75, -28, 31, 1)
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
