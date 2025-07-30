@@ -4,6 +4,12 @@ class_name BaseCharacter
 @onready var Debug := $CanvasLayer/Debug
 @onready var Sprite: AnimatedSprite3D = $Sprite
 @onready var JumpSound := $JumpSound
+@onready var CoinCount: Label = $CanvasLayer/CoinCount
+
+var coin_count := 0:
+	set(value):
+		coin_count = value
+		CoinCount.text = "Coins: " + str(coin_count)
 
 # State Declarations
 var state := "neutral"
@@ -150,7 +156,10 @@ func _physics_process(delta: float) -> void:
 	if bonus_speed > 0.0 and state == "neutral":
 		new_animation = "spin"
 		new_suffix = ""
-			
+		
+	# GUI
+	
+	
 	# Debug
 	Debug.text = "Velocity:\n" + "X: %.2f\nY: %.2f\nZ: %.2f" % [velocity.x, velocity.y, velocity.z]
 	Debug.text += "\nBonus Speed: %.2f" % bonus_speed
