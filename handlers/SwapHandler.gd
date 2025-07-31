@@ -50,7 +50,6 @@ func handle_swap_animation(delta: float) -> void:
 		
 		var temp_velocity = current_character.velocity
 		var temp_bonus_speed = current_character.bonus_speed
-		var temp_coin_count = current_character.coin_count
 
 		var new_scene = luigi if current_character.character == "Mario" else mario
 		current_character.queue_free()
@@ -62,7 +61,6 @@ func handle_swap_animation(delta: float) -> void:
 		
 		current_character.velocity = temp_velocity
 		current_character.bonus_speed = temp_bonus_speed
-		current_character.coin_count = temp_coin_count
 
 		current_character.face_right = face_right
 		current_character.set_meta("rotation_offset", offset)

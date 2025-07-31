@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4241rj1chqal"]
+[gd_scene load_steps=20 format=3 uid="uid://c4241rj1chqal"]
 
 [ext_resource type="Script" uid="uid://b1irentd8yejl" path="res://handlers/WorldBoundary.gd" id="1_vk76v"]
 [ext_resource type="MeshLibrary" uid="uid://bxu3gylq8pn6y" path="res://tiles/PrototypeTiles.tres" id="2_mvu23"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bh22n5m53ik5n" path="res://collectables/BlueCoin.tscn" id="10_u77ad"]
 [ext_resource type="PackedScene" uid="uid://b020u1xwy2027" path="res://tiles/Checkpoint.tscn" id="11_3g7cv"]
 [ext_resource type="PackedScene" uid="uid://d30uat5qax6kf" path="res://tiles/LoadingZone.tscn" id="12_y0b8k"]
+[ext_resource type="PackedScene" uid="uid://bs5alqeh6clox" path="res://ui/HUD.tscn" id="13_rcven"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qhyq2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -187,5 +188,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9999, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 3, 0)
 destination_path = "res://maps/Hub.tscn"
 direction = "right"
+
+[node name="HUD" parent="." instance=ExtResource("13_rcven")]
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d2nnuta8bvaon"]
+[gd_scene load_steps=20 format=3 uid="uid://d2nnuta8bvaon"]
 
 [ext_resource type="Script" uid="uid://bhq1113brptug" path="res://playable/Mario.gd" id="1_pcyhl"]
 [ext_resource type="Texture2D" uid="uid://dyh10bd32dkr1" path="res://sprites/MarioSprites/MarioCharge.svg" id="2_xxmno"]
@@ -17,11 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://v8nhnyi80oeq" path="res://sprites/MarioSprites/MarioRun3Back.svg" id="15_oufov"]
 [ext_resource type="Texture2D" uid="uid://fykdgxo2ckre" path="res://sprites/MarioSprites/MarioSpin.svg" id="16_hs0q8"]
 [ext_resource type="AudioStream" uid="uid://1fwypt5avch7" path="res://sounds/MarioJump.ogg" id="17_pcyhl"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_248bc"]
-font_size = 48
-shadow_size = 16
-shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pu3up"]
 animations = [{
@@ -144,18 +139,6 @@ script = ExtResource("1_pcyhl")
 [node name="Debug" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
-
-[node name="CoinCount" type="Label" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -90.0
-offset_right = 90.0
-offset_bottom = 67.0
-grow_horizontal = 2
-text = "Coins: 0"
-label_settings = SubResource("LabelSettings_248bc")
-horizontal_alignment = 1
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 shaded = true

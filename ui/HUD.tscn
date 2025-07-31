@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs5alqeh6clox"]
+
+[ext_resource type="Script" uid="uid://c1uuq4ta4jv6m" path="res://ui/HUD.gd" id="1_1x8ju"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aaqae"]
+font_size = 48
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_1x8ju")
+
+[node name="CoinCount" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 67.0
+grow_horizontal = 2
+text = "Coins: 0"
+label_settings = SubResource("LabelSettings_aaqae")
+horizontal_alignment = 1

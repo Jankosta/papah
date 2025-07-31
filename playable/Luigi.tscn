@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsvheiloa0jbr"]
+[gd_scene load_steps=17 format=3 uid="uid://bsvheiloa0jbr"]
 
 [ext_resource type="Script" uid="uid://c3v47noq85vir" path="res://playable/Luigi.gd" id="1_cuxvl"]
 [ext_resource type="Texture2D" uid="uid://blfqivxk507m0" path="res://sprites/LuigiSprites/LuigiCharge.svg" id="2_heorg"]
@@ -14,11 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://bkqvj6e2nsew8" path="res://sprites/LuigiSprites/LuigiRun3.svg" id="12_cwiqr"]
 [ext_resource type="Texture2D" uid="uid://dxwfu32jxat6t" path="res://sprites/LuigiSprites/LuigiRun3Back.svg" id="12_klytv"]
 [ext_resource type="AudioStream" uid="uid://duklcgqbsxj07" path="res://sounds/LuigiJump.ogg" id="14_42pn8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_sj64e"]
-font_size = 48
-shadow_size = 16
-shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pu3up"]
 animations = [{
@@ -141,18 +136,6 @@ script = ExtResource("1_cuxvl")
 [node name="Debug" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
 offset_bottom = 23.0
-
-[node name="CoinCount" type="Label" parent="CanvasLayer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -90.0
-offset_right = 90.0
-offset_bottom = 67.0
-grow_horizontal = 2
-text = "Coins: 0"
-label_settings = SubResource("LabelSettings_sj64e")
-horizontal_alignment = 1
 
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.135, 0)
