@@ -177,4 +177,7 @@ transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -34, 19, 1)
 [node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.75, -28, 31, 1)
 
+[node name="SpawnArea" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9999, 0)
+
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]

@@ -56,8 +56,9 @@ func handle_swap_animation(delta: float) -> void:
 		current_character.queue_free()
 
 		current_character = new_scene.instantiate()
-		add_child(current_character)
+		$"../SpawnArea".add_child(current_character)
 		current_character.global_transform.origin = pos
+		current_character.reparent(self)
 		
 		current_character.velocity = temp_velocity
 		current_character.bonus_speed = temp_bonus_speed
@@ -86,12 +87,9 @@ func spawn_character(scene: PackedScene):
 		current_character.queue_free()
 
 	current_character = scene.instantiate()
-	add_child(current_character)
+	$"../SpawnArea".add_child(current_character)
 	current_character.global_transform.origin = pos
+	current_character.reparent(self)
 
 	current_character.face_right = face_right
 	current_character.Sprite.rotation_degrees.y = 0.0 if face_right else 180.0
-
-func swap_character():
-	var new_scene = luigi if current_character.character == "Mario" else mario
-	spawn_character(new_scene)

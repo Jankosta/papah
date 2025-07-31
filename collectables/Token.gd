@@ -10,7 +10,7 @@ var homing := false
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
-func _on_body_entered(body: CharacterBody3D) -> void:
+func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("players") and not homing:
 		target_player = body
 		homing = true
