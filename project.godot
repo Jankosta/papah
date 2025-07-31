@@ -15,6 +15,10 @@ run/main_scene="uid://c4241rj1chqal"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://bvkb1hqq21ng0"
 
+[autoload]
+
+TransitionFader="*res://ui/TransitionFader.tscn"
+
 [display]
 
 window/size/viewport_width=1920
