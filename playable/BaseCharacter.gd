@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = max_fall_speed
 
 	# Jump
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and state != "control":
 		velocity.y = jump_velocity + bonus_jump + (bonus_speed * 0.3)
 		JumpSound.play()
 	if Input.is_action_just_released("jump") and velocity.y > 0:
@@ -86,6 +86,9 @@ func _physics_process(delta: float) -> void:
 	elif state == "charge":
 		velocity.x = move_toward(velocity.x, 0, move_speed * delta * traction * 2.0)
 		velocity.z = move_toward(velocity.z, 0, move_speed * delta * traction * 2.0)
+	elif state == "control":
+		velocity.x = move_toward(velocity.x, 0, move_speed * delta)
+		velocity.z = move_toward(velocity.z, 0, move_speed * delta)
 		
 	if velocity == Vector3.ZERO:
 		bonus_speed -= 0.2
@@ -97,7 +100,7 @@ func _physics_process(delta: float) -> void:
 	# Flip
 	var target_rotation := Sprite.rotation_degrees.y
 
-	if is_on_floor() and (bonus_speed == 0.0):
+	if is_on_floor() and (bonus_speed == 0.0) and state != "control":
 		if input_dir.x > 0.0 and not face_right:
 			face_right = true
 			is_flipping = true
@@ -123,7 +126,7 @@ func _physics_process(delta: float) -> void:
 			is_flipping = false
 			
 	# Face Up Check
-	if is_on_floor():
+	if is_on_floor() and state != "control":
 		if abs(input_dir.x) > abs(input_dir.y):
 			face_up = false
 		else:
@@ -136,6 +139,18 @@ func _physics_process(delta: float) -> void:
 	if state == "neutral":
 		if is_on_floor():
 			if input_dir != Vector2.ZERO:
+				new_animation = "run"
+			else:
+				new_animation = "idle"
+		else:
+			if velocity.y >= -2.0:
+				new_animation = "jump"
+			else:
+				new_animation = "fall"
+				
+	if state == "control":
+		if is_on_floor():
+			if velocity != Vector3.ZERO:
 				new_animation = "run"
 			else:
 				new_animation = "idle"

@@ -22,6 +22,7 @@ func _on_body_entered(body: Node3D) -> void:
 		body.bonus_speed = 0.0
 
 func handle_respawn(body: Node3D, checkpoint):
-	body.global_transform.origin = checkpoint.global_transform.origin - Vector3(0, 1.5, 0)
+	body.global_transform.origin = checkpoint.global_transform.origin - Vector3(0, 0, 0)
+	body.state = "neutral"
 	body.velocity = Vector3.ZERO
 	body.bonus_speed = 0.0

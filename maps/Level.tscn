@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4241rj1chqal"]
+[gd_scene load_steps=19 format=3 uid="uid://c4241rj1chqal"]
 
 [ext_resource type="Script" uid="uid://b1irentd8yejl" path="res://handlers/WorldBoundary.gd" id="1_vk76v"]
 [ext_resource type="MeshLibrary" uid="uid://bxu3gylq8pn6y" path="res://tiles/PrototypeTiles.tres" id="2_mvu23"]
@@ -11,17 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://byusspsgeh878" path="res://collectables/RedCoin.tscn" id="9_olgy5"]
 [ext_resource type="PackedScene" uid="uid://bh22n5m53ik5n" path="res://collectables/BlueCoin.tscn" id="10_u77ad"]
 [ext_resource type="PackedScene" uid="uid://b020u1xwy2027" path="res://tiles/Checkpoint.tscn" id="11_3g7cv"]
+[ext_resource type="PackedScene" uid="uid://d30uat5qax6kf" path="res://tiles/LoadingZone.tscn" id="12_y0b8k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qhyq2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_bexhn"]
+[sub_resource type="Sky" id="Sky_y0b8k"]
 sky_material = SubResource("ProceduralSkyMaterial_qhyq2")
 
 [sub_resource type="Environment" id="Environment_t7iv1"]
 background_mode = 2
-sky = SubResource("Sky_bexhn")
+sky = SubResource("Sky_y0b8k")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -134,7 +135,7 @@ material = ExtResource("6_3g7cv")
 [node name="Collectables" type="Node3D" parent="."]
 
 [node name="Token2" parent="Collectables" instance=ExtResource("7_mvu23")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, 0)
 
 [node name="Coin" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
@@ -163,21 +164,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -1, 0)
 [node name="Checkpoints" type="Node3D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 7, 0)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -22, 19, 1)
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -22, 18, 1)
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -34, 19, 1)
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -34, 18, 1)
 
 [node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("11_3g7cv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.75, -28, 31, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.75, -28, 30, 1)
 
 [node name="SpawnArea" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9999, 0)
+
+[node name="LoadingZones" type="Node3D" parent="."]
+
+[node name="LoadingZone" parent="LoadingZones" instance=ExtResource("12_y0b8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 3, 0)
+destination_path = "res://maps/Hub.tscn"
+direction = "right"
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]

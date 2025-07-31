@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d30uat5qax6kf"]
+
+[ext_resource type="Script" uid="uid://4qhw3otl1ux2" path="res://tiles/LoadingZone.gd" id="1_xgc2q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6reu"]
+size = Vector3(4, 4, 4)
+
+[node name="LoadingZone" type="Area3D"]
+script = ExtResource("1_xgc2q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_o6reu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
