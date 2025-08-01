@@ -1,10 +1,76 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy3r1g4og2nyf"]
+[gd_scene load_steps=31 format=3 uid="uid://cy3r1g4og2nyf"]
 
 [ext_resource type="Script" uid="uid://bhxl7mo7uthli" path="res://collectables/Coin.gd" id="1_7g20g"]
 [ext_resource type="Texture2D" uid="uid://c3optjf16rtda" path="res://sprites/Items/Coin.svg" id="2_7g20g"]
+[ext_resource type="Texture2D" uid="uid://63vrj3jfqjg1" path="res://sprites/Items/BlueCoin.svg" id="2_m4c7x"]
+[ext_resource type="Texture2D" uid="uid://bukcpl6edt7wa" path="res://sprites/Items/RedCoin.svg" id="3_jhebr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2r6w6"]
-radius = 0.25
+radius = 0.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3s0t"]
+atlas = ExtResource("2_m4c7x")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gvds"]
+atlas = ExtResource("2_m4c7x")
+region = Rect2(60, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yume2"]
+atlas = ExtResource("2_m4c7x")
+region = Rect2(120, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2a0y"]
+atlas = ExtResource("2_m4c7x")
+region = Rect2(180, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnuga"]
+atlas = ExtResource("2_m4c7x")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsg00"]
+atlas = ExtResource("2_m4c7x")
+region = Rect2(300, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv77o"]
+atlas = ExtResource("2_m4c7x")
+region = Rect2(360, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uxf4"]
+atlas = ExtResource("2_m4c7x")
+region = Rect2(420, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b35og"]
+atlas = ExtResource("3_jhebr")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk6x8"]
+atlas = ExtResource("3_jhebr")
+region = Rect2(60, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w14e4"]
+atlas = ExtResource("3_jhebr")
+region = Rect2(120, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkrbb"]
+atlas = ExtResource("3_jhebr")
+region = Rect2(180, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgp6o"]
+atlas = ExtResource("3_jhebr")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcego"]
+atlas = ExtResource("3_jhebr")
+region = Rect2(300, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pr8h"]
+atlas = ExtResource("3_jhebr")
+region = Rect2(360, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3axg8"]
+atlas = ExtResource("3_jhebr")
+region = Rect2(420, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mpyta"]
 atlas = ExtResource("2_7g20g")
@@ -42,6 +108,64 @@ region = Rect2(420, 0, 48, 48)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_g3s0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gvds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yume2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2a0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnuga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsg00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv77o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uxf4")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b35og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk6x8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w14e4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkrbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgp6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcego")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pr8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3axg8")
+}],
+"loop": true,
+"name": &"red",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mpyta")
 }, {
 "duration": 1.0,
@@ -66,7 +190,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qo35b")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"yellow",
 "speed": 12.0
 }]
 
@@ -79,8 +203,7 @@ shape = SubResource("SphereShape3D_2r6w6")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_mpyta")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.496201
+animation = &"yellow"
+autoplay = "yellow"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

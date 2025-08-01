@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://csjevglfgw80n" path="res://sprites/LuigiSprites/LuigiRun2.svg" id="11_jjsnt"]
 [ext_resource type="Texture2D" uid="uid://bkqvj6e2nsew8" path="res://sprites/LuigiSprites/LuigiRun3.svg" id="12_cwiqr"]
 [ext_resource type="Texture2D" uid="uid://dxwfu32jxat6t" path="res://sprites/LuigiSprites/LuigiRun3Back.svg" id="12_klytv"]
-[ext_resource type="AudioStream" uid="uid://duklcgqbsxj07" path="res://sounds/LuigiJump.ogg" id="14_42pn8"]
+[ext_resource type="AudioStream" uid="uid://1fwypt5avch7" path="res://audio/sounds/Jump.ogg" id="14_sj64e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pu3up"]
 animations = [{
@@ -153,4 +153,7 @@ shape = SubResource("CapsuleShape3D_vxomc")
 transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 2, 6)
 
 [node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("14_42pn8")
+stream = ExtResource("14_sj64e")
+volume_db = 2.0
+pitch_scale = 0.9
+bus = &"Sfx"

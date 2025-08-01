@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4241rj1chqal"]
+[gd_scene load_steps=18 format=3 uid="uid://c4241rj1chqal"]
 
 [ext_resource type="Script" uid="uid://b1irentd8yejl" path="res://handlers/WorldBoundary.gd" id="1_vk76v"]
 [ext_resource type="MeshLibrary" uid="uid://bxu3gylq8pn6y" path="res://tiles/PrototypeTiles.tres" id="2_mvu23"]
@@ -6,13 +6,11 @@
 [ext_resource type="Material" uid="uid://df01iilo8ile5" path="res://materials/prototype_green.tres" id="4_olgy5"]
 [ext_resource type="PackedScene" uid="uid://c6ee6sntcad0f" path="res://handlers/SwapHandler.tscn" id="5_u77ad"]
 [ext_resource type="Material" uid="uid://bk851asv3ql42" path="res://materials/prototype_red.tres" id="6_3g7cv"]
-[ext_resource type="PackedScene" uid="uid://17744k2nexqe" path="res://collectables/Token.tscn" id="7_mvu23"]
 [ext_resource type="PackedScene" uid="uid://cy3r1g4og2nyf" path="res://collectables/Coin.tscn" id="8_v1run"]
-[ext_resource type="PackedScene" uid="uid://byusspsgeh878" path="res://collectables/RedCoin.tscn" id="9_olgy5"]
-[ext_resource type="PackedScene" uid="uid://bh22n5m53ik5n" path="res://collectables/BlueCoin.tscn" id="10_u77ad"]
 [ext_resource type="PackedScene" uid="uid://b020u1xwy2027" path="res://tiles/Checkpoint.tscn" id="11_3g7cv"]
 [ext_resource type="PackedScene" uid="uid://d30uat5qax6kf" path="res://tiles/LoadingZone.tscn" id="12_y0b8k"]
 [ext_resource type="PackedScene" uid="uid://bs5alqeh6clox" path="res://ui/HUD.tscn" id="13_rcven"]
+[ext_resource type="AudioStream" uid="uid://qqlvvmxsao5g" path="res://audio/music/GoombaVillage.ogg" id="14_51kv4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qhyq2"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -135,9 +133,6 @@ material = ExtResource("6_3g7cv")
 
 [node name="Collectables" type="Node3D" parent="."]
 
-[node name="Token2" parent="Collectables" instance=ExtResource("7_mvu23")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 2, 0)
-
 [node name="Coin" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
 
@@ -156,11 +151,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
 [node name="Coin3" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
 
-[node name="Coin7" parent="Collectables" instance=ExtResource("9_olgy5")]
+[node name="Coin7" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
+type = "red"
 
-[node name="Coin8" parent="Collectables" instance=ExtResource("10_u77ad")]
+[node name="Coin8" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -1, 0)
+type = "blue"
+
+[node name="Coin9" parent="Collectables" instance=ExtResource("8_v1run")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 34, 1)
+type = "blue"
 
 [node name="Checkpoints" type="Node3D" parent="."]
 
@@ -205,5 +206,12 @@ id = 3
 destination_id = 3
 
 [node name="HUD" parent="." instance=ExtResource("13_rcven")]
+
+[node name="Sound" type="Node3D" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource("14_51kv4")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]

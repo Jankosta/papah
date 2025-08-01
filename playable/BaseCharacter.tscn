@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cxbqgu8o36q3o" path="res://sprites/MarioSprites/MarioRun2Back.svg" id="14_xyk0h"]
 [ext_resource type="Texture2D" uid="uid://v8nhnyi80oeq" path="res://sprites/MarioSprites/MarioRun3Back.svg" id="15_5403x"]
 [ext_resource type="Texture2D" uid="uid://fykdgxo2ckre" path="res://sprites/MarioSprites/MarioSpin.svg" id="16_dgrpt"]
-[ext_resource type="AudioStream" uid="uid://1fwypt5avch7" path="res://sounds/MarioJump.ogg" id="17_aemeb"]
+[ext_resource type="AudioStream" uid="uid://1fwypt5avch7" path="res://audio/sounds/Jump.ogg" id="17_aemeb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pu3up"]
 animations = [{
@@ -156,3 +156,5 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 
 [node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_aemeb")
+volume_db = 2.0
+bus = &"Sfx"

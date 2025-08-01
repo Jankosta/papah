@@ -14,7 +14,7 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("players") and not homing:
 		target_player = body
 		homing = true
-		animation.speed_scale = 10.0
+		animation.speed_scale = 25.0
 
 func _physics_process(delta: float) -> void:
 	if homing and target_player:
@@ -43,5 +43,5 @@ func _physics_process(delta: float) -> void:
 
 		# Pick up
 		if global_position.distance_to(target_player.global_position) < pickup_distance:
-			# target_player.coin_count += 1
+			get_tree().quit()
 			queue_free()
