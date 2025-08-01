@@ -29,12 +29,12 @@ func _on_body_exited(body: Node3D) -> void:
 			GameStats.transition_state = 0
 			GameStats.transition_id = -1
 
-func walk_off(body: Node3D, direction):
+func walk_off(body: Node3D, dir):
 	GameStats.transition_state = 1
 	body.state = "control"
 	body.bonus_speed = 0.0
 	body.velocity = Vector3.ZERO
-	match direction:
+	match dir:
 		"left":
 			body.velocity.x = -8.0
 			body.face_right = false
@@ -52,12 +52,12 @@ func walk_off(body: Node3D, direction):
 		_:
 			push_error("Unbound LoadingZone direction: " + str(direction))
 			
-func walk_in(body: Node3D, direction):
+func walk_in(body: Node3D, dir):
 	GameStats.transition_state = -1
 	body.state = "control"
 	body.bonus_speed = 0.0
 	body.velocity = Vector3.ZERO
-	match direction:
+	match dir:
 		"left":
 			body.velocity.x = 8.0
 			body.face_right = true
@@ -65,6 +65,7 @@ func walk_in(body: Node3D, direction):
 		"right":
 			body.velocity.x = -8.0
 			body.face_right = false
+			body.Sprite.rotation_degrees.y = 180.0
 			body.face_up = false
 		"up":
 			body.velocity.z = 8.0

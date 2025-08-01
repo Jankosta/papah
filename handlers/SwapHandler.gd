@@ -75,9 +75,9 @@ func handle_swap_animation(delta: float) -> void:
 		current_character.set_frozen(false)
 		swapping = false
 
-func spawn_character(name: String):
-	if not characters.has(name):
-		push_error("Unknown character: " + name)
+func spawn_character(spawn_name: String):
+	if not characters.has(spawn_name):
+		push_error("Unknown character: " + spawn_name)
 		return
 
 	# Default Position
@@ -97,7 +97,7 @@ func spawn_character(name: String):
 		face_right = current_character.face_right
 		current_character.queue_free()
 
-	var scene = characters[name]
+	var scene = characters[spawn_name]
 	current_character = scene.instantiate()
 	add_child(current_character)
 	current_character.global_transform.origin = pos

@@ -65,21 +65,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
 destination_path = "res://maps/Level.tscn"
 direction = "up"
 id = 1
-destination_id = 0
+destination_id = 1
 
 [node name="LoadingZoneRight" parent="LoadingZones" instance=ExtResource("4_webpg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2, 0)
-destination_path = "res://maps/Level.tscn"
+destination_path = "res://maps/Hub.tscn"
 direction = "right"
 id = 2
-destination_id = 0
+destination_id = 2
 
 [node name="LoadingZoneDown" parent="LoadingZones" instance=ExtResource("4_webpg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8)
 destination_path = "res://maps/Level.tscn"
 direction = "down"
 id = 3
-destination_id = 0
+destination_id = 3
 
 [node name="Checkpoints" type="Node3D" parent="."]
 
