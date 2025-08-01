@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://dibmeghxukwnd"]
+[gd_scene load_steps=12 format=3 uid="uid://dibmeghxukwnd"]
 
-[ext_resource type="Script" uid="uid://dyolpw0korqs6" path="res://maps/HubReverb.gd" id="1_fr1tj"]
 [ext_resource type="Script" uid="uid://b1irentd8yejl" path="res://handlers/WorldBoundary.gd" id="1_v6ctf"]
 [ext_resource type="MeshLibrary" uid="uid://bxu3gylq8pn6y" path="res://tiles/PrototypeTiles.tres" id="2_webpg"]
 [ext_resource type="PackedScene" uid="uid://c6ee6sntcad0f" path="res://handlers/SwapHandler.tscn" id="3_1f4tr"]
@@ -9,32 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://bs5alqeh6clox" path="res://ui/HUD.tscn" id="6_k1i81"]
 [ext_resource type="PackedScene" uid="uid://17744k2nexqe" path="res://collectables/Token.tscn" id="7_iwsqt"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k1i81"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fr1tj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fr1tj"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_bexhn"]
-sky_material = SubResource("ProceduralSkyMaterial_k1i81")
+[sub_resource type="Sky" id="Sky_y0b8k"]
+sky_material = SubResource("ProceduralSkyMaterial_fr1tj")
 
-[sub_resource type="Environment" id="Environment_iwsqt"]
-background_mode = 1
-sky = SubResource("Sky_bexhn")
+[sub_resource type="Environment" id="Environment_dxq58"]
+background_mode = 2
+sky = SubResource("Sky_y0b8k")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fr1tj"]
-
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_fr1tj")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_iwsqt")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866026, 0.5, 0.5, -0.433013, 0.75, 0, 0, 0)
-light_color = Color(0.567266, 0.0827367, 0, 1)
-shadow_enabled = true
-shadow_opacity = 0.75
 
 [node name="WorldBoundary" type="Area3D" parent="."]
 script = ExtResource("1_v6ctf")
@@ -93,5 +82,14 @@ transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 1, 0)
 
 [node name="Token" parent="." instance=ExtResource("7_iwsqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dxq58")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.25, -0.433013, 0, 0.866026, 0.5, 0.5, -0.433013, 0.75, 0, 0, 0)
+light_energy = 0.75
+shadow_enabled = true
+shadow_opacity = 0.75
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]

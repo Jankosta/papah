@@ -16,12 +16,12 @@
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_y0b8k"]
+[sub_resource type="Sky" id="Sky_3g7cv"]
 sky_material = SubResource("ProceduralSkyMaterial_qhyq2")
 
 [sub_resource type="Environment" id="Environment_t7iv1"]
 background_mode = 2
-sky = SubResource("Sky_y0b8k")
+sky = SubResource("Sky_3g7cv")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -133,35 +133,44 @@ material = ExtResource("6_3g7cv")
 
 [node name="Collectables" type="Node3D" parent="."]
 
-[node name="Coin" parent="Collectables" instance=ExtResource("8_v1run")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
-
-[node name="Coin4" parent="Collectables" instance=ExtResource("8_v1run")]
+[node name="Coin0" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0)
+coin_id = 0
 
-[node name="Coin5" parent="Collectables" instance=ExtResource("8_v1run")]
+[node name="Coin1" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 0)
-
-[node name="Coin6" parent="Collectables" instance=ExtResource("8_v1run")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 0)
+coin_id = 1
 
 [node name="Coin2" parent="Collectables" instance=ExtResource("8_v1run")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 0)
+coin_id = 2
 
 [node name="Coin3" parent="Collectables" instance=ExtResource("8_v1run")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+coin_id = 3
 
-[node name="Coin7" parent="Collectables" instance=ExtResource("8_v1run")]
+[node name="Coin4" parent="Collectables" instance=ExtResource("8_v1run")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7)
+coin_id = 4
+
+[node name="Coin5" parent="Collectables" instance=ExtResource("8_v1run")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
+coin_id = 5
+
+[node name="Coin6" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
 type = "red"
+coin_id = 6
 
-[node name="Coin8" parent="Collectables" instance=ExtResource("8_v1run")]
+[node name="Coin7" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, -1, 0)
 type = "blue"
+coin_id = 7
 
-[node name="Coin9" parent="Collectables" instance=ExtResource("8_v1run")]
+[node name="Coin8" parent="Collectables" instance=ExtResource("8_v1run")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 34, 1)
 type = "blue"
+coin_id = 8
 
 [node name="Checkpoints" type="Node3D" parent="."]
 

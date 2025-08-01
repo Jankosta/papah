@@ -1,6 +1,8 @@
 extends Node
 
 var coins: int = 0
+var collected_coins: = {}
+
 var transition_state := 0
 var transition_id := -1
 var active_character := "mario"

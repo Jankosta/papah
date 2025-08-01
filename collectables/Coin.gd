@@ -4,6 +4,8 @@ extends Area3D
 @export_enum("yellow", "red", "blue")
 var type: String = "yellow" : set = set_type
 
+@export var coin_id: int = -1
+
 @onready var sprite := $AnimatedSprite3D
 
 var coin_sound := preload("res://audio/sounds/Coin.ogg")
@@ -11,6 +13,12 @@ var red_sound := preload("res://audio/sounds/RedCoin.ogg")
 
 func _ready() -> void:
 	update_visuals()
+	
+	if Engine.is_editor_hint():
+		return
+	
+	if GameStats.collected_coins.has(coin_id):
+		queue_free()
 
 func _on_body_entered(body: CharacterBody3D) -> void:
 	if body.is_in_group("players"):
@@ -20,7 +28,7 @@ func _on_body_entered(body: CharacterBody3D) -> void:
 				play_sound(coin_sound)
 				GameStats.add_coins(1)
 			"blue":
-				for i in 5:
+				for i in 5:            
 					play_sound(coin_sound)
 					GameStats.add_coins(1)
 					if i < 4:
@@ -32,6 +40,7 @@ func _on_body_entered(body: CharacterBody3D) -> void:
 				GameStats.add_coins(1)
 			_:
 				pass
+		GameStats.collected_coins[coin_id] = true
 		queue_free()
 
 func play_sound(sound):

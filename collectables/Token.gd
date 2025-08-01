@@ -43,5 +43,4 @@ func _physics_process(delta: float) -> void:
 
 		# Pick up
 		if global_position.distance_to(target_player.global_position) < pickup_distance:
-			get_tree().quit()
 			queue_free()
