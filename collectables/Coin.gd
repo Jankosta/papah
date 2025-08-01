@@ -34,7 +34,8 @@ func _on_body_entered(body: CharacterBody3D) -> void:
 					if i < 4:
 						await get_tree().create_timer(0.1).timeout
 			"red":
-				play_sound(red_sound)
+				play_sound(red_sound, 2 ** (GameStats.red_coin_count / 12.0), -5.0)
+				GameStats.red_coin_count += 1
 				GameStats.add_coins(1)
 				await get_tree().create_timer(0.1).timeout
 				GameStats.add_coins(1)
@@ -43,11 +44,13 @@ func _on_body_entered(body: CharacterBody3D) -> void:
 		GameStats.collected_coins[coin_id] = true
 		queue_free()
 
-func play_sound(sound):
+func play_sound(sound, pitch: float = 1.0, volume: float = -10.0):
 	var player := AudioStreamPlayer3D.new()
 	player.stream = sound
 	player.bus = "Sfx"
+	player.volume_db = volume
 	player.transform.origin = global_transform.origin
+	player.pitch_scale = pitch
 	get_tree().current_scene.add_child(player)
 	player.play()
 	player.finished.connect(func(): player.queue_free())

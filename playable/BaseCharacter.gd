@@ -32,9 +32,6 @@ var face_up := false
 var new_animation := "idle"
 var new_suffix := ""
 
-# Debug
-var charge_cap = true
-
 func _ready() -> void:
 	add_to_group("players")
 	Sprite.play("idle")
@@ -170,15 +167,15 @@ func _physics_process(delta: float) -> void:
 	
 	
 	# Debug
-	Debug.text = "Velocity:\n" + "X: %.2f\nY: %.2f\nZ: %.2f" % [velocity.x, velocity.y, velocity.z]
-	Debug.text += "\nBonus Speed: %.2f" % bonus_speed
-	Debug.text += "\nCharacter: %s" % character
-	Debug.text += "\nState: %s" % state
-	Debug.text += "\nCharge (Shift): %.2f" % charge
-	Debug.text += "\nCharge Cap: %s" % charge_cap
-	
-	if Input.is_action_just_pressed("debug_1"):
-		charge_cap = !charge_cap
+	if GameStats.debug_active:
+		Debug.text = "Velocity:\n" + "X: %.2f\nY: %.2f\nZ: %.2f" % [velocity.x, velocity.y, velocity.z]
+		Debug.text += "\nBonus Speed: %.2f" % bonus_speed
+		Debug.text += "\nCharacter: %s" % character
+		Debug.text += "\nState: %s" % state
+		Debug.text += "\nCharge (Shift): %.2f" % charge
+		Debug.text += "\nCharge Cap: %s" % GameStats.charge_cap
+	else:
+		Debug.text = ""
 		
 func set_frozen(value: bool) -> void:
 	frozen = value

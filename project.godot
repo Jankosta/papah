@@ -19,6 +19,7 @@ config/icon="uid://bvkb1hqq21ng0"
 
 TransitionFader="*res://ui/TransitionFader.tscn"
 GameStats="*res://handlers/GameStats.gd"
+MusicHandler="*res://handlers/MusicHandler.gd"
 
 [display]
 
