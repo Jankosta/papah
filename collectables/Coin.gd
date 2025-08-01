@@ -6,8 +6,8 @@ var type: String = "yellow" : set = set_type
 
 @onready var sprite := $AnimatedSprite3D
 
-var coin_sound := preload("res://audio/sounds/coin.ogg")
-var red_sound := preload("res://audio/sounds/redcoin.ogg")
+var coin_sound := preload("res://audio/sounds/Coin.ogg")
+var red_sound := preload("res://audio/sounds/RedCoin.ogg")
 
 func _ready() -> void:
 	update_visuals()
