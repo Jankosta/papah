@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("debug_2"):
 			charge_cap = !charge_cap
 	else:
-		charge_cap = false
+		charge_cap = true
 		
 	if debug_active:
 		if Input.is_action_just_pressed("debug_3"):

@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			charge = 0.0
 		
 	if state == "charge":
-		if GameStats.charge_cap == false:
+		if GameStats.charge_cap == true:
 			charge = min(charge + 0.15, 8.0)
 		else:
 			charge += 0.15
