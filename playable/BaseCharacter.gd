@@ -49,7 +49,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if frozen:
 		return
-	
+
 	# Gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -122,7 +122,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		walk_timer = 0.0  # Reset timer
 
-	
 	# Spin
 	if bonus_speed > 0.0 and state == "neutral":
 		Sprite.rotation_degrees.y += ((bonus_speed) * 100) * delta

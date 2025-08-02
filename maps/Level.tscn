@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4241rj1chqal"]
+[gd_scene load_steps=19 format=3 uid="uid://c4241rj1chqal"]
 
 [ext_resource type="Script" uid="uid://corlgfo70cvpx" path="res://maps/Level.gd" id="1_3g7cv"]
 [ext_resource type="Script" uid="uid://b1irentd8yejl" path="res://handlers/WorldBoundary.gd" id="1_vk76v"]
@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://bk851asv3ql42" path="res://materials/prototype_red.tres" id="6_3g7cv"]
 [ext_resource type="PackedScene" uid="uid://cy3r1g4og2nyf" path="res://collectables/Coin.tscn" id="8_v1run"]
 [ext_resource type="PackedScene" uid="uid://b020u1xwy2027" path="res://tiles/Checkpoint.tscn" id="11_3g7cv"]
+[ext_resource type="PackedScene" uid="uid://cbw32bw4ta75" path="res://entities/npc.tscn" id="12_rcven"]
 [ext_resource type="PackedScene" uid="uid://d30uat5qax6kf" path="res://tiles/LoadingZone.tscn" id="12_y0b8k"]
 [ext_resource type="PackedScene" uid="uid://bs5alqeh6clox" path="res://ui/HUD.tscn" id="13_rcven"]
 
@@ -222,5 +223,10 @@ id = 3
 destination_id = 3
 
 [node name="HUD" parent="." instance=ExtResource("13_rcven")]
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="NPC" parent="NPCs" instance=ExtResource("12_rcven")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67, -3)
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cbw32bw4ta75"]
+
+[ext_resource type="Script" uid="uid://clabl21bfxls8" path="res://entities/npc.gd" id="1_34xg4"]
+[ext_resource type="Texture2D" uid="uid://dd357uv0e0bqp" path="res://sprites/ToadSprites/BlueToad.svg" id="1_kdwfn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34xg4"]
+atlas = ExtResource("1_kdwfn")
+region = Rect2(0, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u2uj"]
+atlas = ExtResource("1_kdwfn")
+region = Rect2(144, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg5r8"]
+atlas = ExtResource("1_kdwfn")
+region = Rect2(288, 0, 144, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqa5y"]
+atlas = ExtResource("1_kdwfn")
+region = Rect2(432, 0, 144, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5hdwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34xg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u2uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg5r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqa5y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kdwfn"]
+radius = 0.4
+height = 1.19223
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_34xg4"]
+radius = 0.4
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_34xg4")
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+shaded = true
+alpha_cut = 2
+sprite_frames = SubResource("SpriteFrames_5hdwl")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.491878
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0559822, 0)
+shape = SubResource("CapsuleShape3D_kdwfn")
+
+[node name="BounceZone" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BounceZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259647, 0)
+shape = SubResource("SphereShape3D_34xg4")
+
+[connection signal="body_entered" from="BounceZone" to="." method="_on_bounce_zone_body_entered"]

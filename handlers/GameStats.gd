@@ -1,5 +1,8 @@
 extends Node
 
+# Game State
+var player: CharacterBody3D = null
+
 # Coins
 var coins: int = 0
 var collected_coins: = {}

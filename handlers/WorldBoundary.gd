@@ -9,13 +9,12 @@ func _process(_delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("players"):
 		# Find active checkpoint
-			for checkpoint in get_tree().get_nodes_in_group("checkpoints"):
-				if checkpoint.active:
-					TransitionFader.transition(
-						func(): handle_respawn(body, checkpoint)
-					)
-					break
-	else:
+		for checkpoint in get_tree().get_nodes_in_group("checkpoints"):
+			if checkpoint.active:
+				TransitionFader.transition(
+					func(): handle_respawn(body, checkpoint)
+				)
+				return
 		# Fallback
 		body.global_transform.origin = Vector3(0, 0.5, 0)
 		body.velocity = Vector3.ZERO

@@ -13,7 +13,7 @@ config_version=5
 config/name="Papah"
 run/main_scene="uid://c4241rj1chqal"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="uid://bvkb1hqq21ng0"
+config/icon="uid://bwvblbglkyvol"
 
 [autoload]
 

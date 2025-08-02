@@ -60,6 +60,7 @@ func handle_swap_animation(delta: float) -> void:
 		$"../SpawnArea".add_child(current_character)
 		current_character.global_transform.origin = pos
 		current_character.reparent(self)
+		GameStats.player = current_character
 
 		current_character.velocity = temp_velocity
 		current_character.bonus_speed = temp_bonus_speed
@@ -103,6 +104,8 @@ func spawn_character(spawn_name: String):
 	add_child(current_character)
 	current_character.global_transform.origin = pos
 	current_character.reparent(self)
+	GameStats.player = current_character
 
 	current_character.face_right = face_right
 	current_character.Sprite.rotation_degrees.y = 0.0 if face_right else 180.0
+	

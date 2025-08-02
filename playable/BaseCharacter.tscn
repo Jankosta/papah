@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cqpr4kuqaffpl"]
+[gd_scene load_steps=24 format=3 uid="uid://cqpr4kuqaffpl"]
 
 [ext_resource type="Script" uid="uid://cd5rjfmg84dln" path="res://playable/BaseCharacter.gd" id="1_aemeb"]
 [ext_resource type="Texture2D" uid="uid://dyh10bd32dkr1" path="res://sprites/MarioSprites/MarioCharge.svg" id="2_dsb40"]
@@ -131,6 +131,23 @@ animations = [{
 radius = 0.36
 height = 1.49
 
+[sub_resource type="Curve" id="Curve_ysyly"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ysyly"]
+curve = SubResource("Curve_ysyly")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ysyly"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+gravity = Vector3(0, 2, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_ysyly")
+
+[sub_resource type="SphereMesh" id="SphereMesh_w3y5p"]
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_aemeb")
 
@@ -162,3 +179,10 @@ bus = &"Sfx"
 [node name="WalkSoundPlayer" type="AudioStreamPlayer3D" parent="."]
 volume_db = -6.0
 bus = &"Sfx"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." groups=["FootstepParticle"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+amount = 16
+lifetime = 0.3
+process_material = SubResource("ParticleProcessMaterial_ysyly")
+draw_pass_1 = SubResource("SphereMesh_w3y5p")
