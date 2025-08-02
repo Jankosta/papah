@@ -7,6 +7,7 @@ func _ready():
 	gravity = -30.0
 	max_fall_speed = -40.0
 	traction = 3.0
+	walk_interval = 0.2
 	character = "Luigi"
 	add_to_group("players")
 

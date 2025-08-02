@@ -10,11 +10,15 @@ var homing := false
 
 @onready var animation: AnimationPlayer = $AnimationPlayer
 
+func _ready():
+	if GameStats.unlock_luigi == true:
+		queue_free()
+
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("players") and not homing:
 		target_player = body
 		homing = true
-		animation.speed_scale = 25.0
+		animation.speed_scale = 5.0
 
 func _physics_process(delta: float) -> void:
 	if homing and target_player:
@@ -35,6 +39,8 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 0.0
 
 		# Jump boost
+		if target_player.global_position.y < global_position.y - 1:
+			jump_boost = 0
 		velocity.y += jump_boost
 		jump_boost = max(0.0, jump_boost - 1.0)
 
@@ -43,4 +49,5 @@ func _physics_process(delta: float) -> void:
 
 		# Pick up
 		if global_position.distance_to(target_player.global_position) < pickup_distance:
+			GameStats.unlock_luigi = true
 			queue_free()

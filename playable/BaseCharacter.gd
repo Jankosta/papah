@@ -4,6 +4,7 @@ class_name BaseCharacter
 @onready var Debug := $CanvasLayer/Debug
 @onready var Sprite: AnimatedSprite3D = $Sprite
 @onready var JumpSound := $JumpSound
+@onready var WalkSoundPlayer: AudioStreamPlayer3D = $WalkSoundPlayer
 
 # State Declarations
 var state := "neutral"
@@ -31,6 +32,15 @@ var is_flipping := false
 var face_up := false
 var new_animation := "idle"
 var new_suffix := ""
+
+# Audio
+var walk_sounds = [
+	preload("res://audio/sounds/Walk1.ogg"),
+	preload("res://audio/sounds/Walk2.ogg")
+]
+var walk_sound_index := 0
+var walk_timer := 0.0
+var walk_interval := 0.18
 
 func _ready() -> void:
 	add_to_group("players")
@@ -100,6 +110,18 @@ func _physics_process(delta: float) -> void:
 			is_flipping = true
 	
 	target_rotation = 0.0 if face_right else 180.0
+	
+	# Walk Sound
+	if is_on_floor() and ((input_dir != Vector2.ZERO and state == "neutral" and bonus_speed == 0) or (state == "control" and velocity != Vector3.ZERO)):
+		walk_timer -= delta
+		if walk_timer <= 0.0:
+			WalkSoundPlayer.stream = walk_sounds[walk_sound_index]
+			WalkSoundPlayer.play()
+			walk_sound_index = (walk_sound_index + 1) % walk_sounds.size()
+			walk_timer = walk_interval
+	else:
+		walk_timer = 0.0  # Reset timer
+
 	
 	# Spin
 	if bonus_speed > 0.0 and state == "neutral":

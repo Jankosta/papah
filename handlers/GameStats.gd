@@ -16,6 +16,9 @@ var transition_state := 0
 var transition_id := -1
 var active_character := "mario"
 
+# Unlocks
+var unlock_luigi := false
+
 # Debug
 var debug_active := false
 var charge_cap := true

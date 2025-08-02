@@ -20,7 +20,8 @@ func _process(delta):
 	if swapping:
 		handle_swap_animation(delta)
 	elif Input.is_action_just_pressed("swap") and current_character.state == "neutral":
-		start_swap()
+		if GameStats.unlock_luigi == true:
+			start_swap()
 		
 func start_swap():
 	swapping = true

@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://17744k2nexqe"]
 
 [ext_resource type="Script" uid="uid://c8oum6hnu1b7g" path="res://collectables/Token.gd" id="1_me7nh"]
-[ext_resource type="Texture2D" uid="uid://bwvblbglkyvol" path="res://sprites/icon.svg" id="1_s1uwx"]
+[ext_resource type="Texture2D" uid="uid://bvkb1hqq21ng0" path="res://sprites/icon2.svg" id="2_me7nh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2r6w6"]
 radius = 2.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0k6ug"]
-albedo_texture = ExtResource("1_s1uwx")
+albedo_texture = ExtResource("2_me7nh")
 metallic = 0.5
 roughness = 0.0
 uv1_offset = Vector3(0.5, 0, 0.5)
